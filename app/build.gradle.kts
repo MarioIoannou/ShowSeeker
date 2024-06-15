@@ -6,6 +6,7 @@ plugins {
     alias(libs.plugins.jetbrainsKotlinAndroid)
     id("com.google.devtools.ksp")
     id("com.google.dagger.hilt.android")
+    id("kotlin-parcelize")
 }
 
 android {
@@ -97,10 +98,14 @@ dependencies {
     implementation("androidx.room:room-paging:2.6.0")
 
     // Dagger - Hilt
-    implementation("com.google.dagger:hilt-android:2.48")
-    ksp("com.google.dagger:hilt-compiler:2.44")
-    ksp("androidx.hilt:hilt-compiler:1.1.0")
-    implementation("androidx.hilt:hilt-navigation-compose:1.1.0")
+    //implementation("com.google.dagger:hilt-android:2.48")
+    //ksp("com.google.dagger:hilt-compiler:2.44")
+    //ksp("androidx.hilt:hilt-compiler:1.1.0")
+    //implementation("androidx.hilt:hilt-navigation-compose:1.1.0")
+
+    implementation("com.google.dagger:hilt-android:2.48.1")
+    implementation("androidx.hilt:hilt-navigation-compose:1.2.0")
+    ksp("com.google.dagger:hilt-android-compiler:2.48.1")
 
     // Retrofit
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
@@ -114,6 +119,4 @@ dependencies {
     // Extended Icons
     implementation("androidx.compose.material:material-icons-extended:1.6.7")
 
-    // system UI Controller
-    implementation("com.google.accompanist:accompanist-systemuicontroller:0.34.0")
 }
