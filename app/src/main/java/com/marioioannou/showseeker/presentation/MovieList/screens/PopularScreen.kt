@@ -1,4 +1,4 @@
-package com.marioioannou.showseeker.core
+package com.marioioannou.showseeker.presentation.MovieList.screens
 
 import android.os.Parcelable
 import androidx.compose.foundation.layout.Box
@@ -18,6 +18,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.Navigator
+import com.marioioannou.showseeker.presentation.MovieDetails.MovieDetailScreen
 import com.marioioannou.showseeker.presentation.MovieList.MovieListState
 import com.marioioannou.showseeker.presentation.MovieList.MovieListUIEvents
 import com.marioioannou.showseeker.presentation.MovieList.MovieListViewModel
@@ -26,8 +27,8 @@ import com.marioioannou.showseeker.utils.Category
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-object PopularScreen:Screen, Parcelable {
-    private fun readResolve(): Any = PopularScreen
+object PopularScreen: Screen,Parcelable {
+    private fun readResolve(): Any = UpcomingScreen
 
     @Composable
     override fun Content() {
@@ -69,7 +70,7 @@ fun PopularMovieListContent(
 
             items(state.popularMovieList.size) { index ->
                 MovieItem(movie = state.popularMovieList[index]) {selectedMovie ->
-                    navigator?.push(MovieDetailScreen(movieId = selectedMovie.id.toString()))
+                    navigator?.push(MovieDetailScreen(movieId = selectedMovie.id))
                 }
 
                 if (index >= state.popularMovieList.size -1 && !state.isLoading){

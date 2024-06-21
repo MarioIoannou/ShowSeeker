@@ -10,7 +10,7 @@ import cafe.adriel.voyager.navigator.tab.Tab
 import cafe.adriel.voyager.navigator.tab.TabOptions
 import cafe.adriel.voyager.transitions.SlideTransition
 import com.marioioannou.showseeker.R
-import com.marioioannou.showseeker.core.PopularScreen
+import com.marioioannou.showseeker.presentation.MovieList.screens.PopularScreen
 
 object PopularTab:Tab {
     private fun readResolve(): Any = PopularTab

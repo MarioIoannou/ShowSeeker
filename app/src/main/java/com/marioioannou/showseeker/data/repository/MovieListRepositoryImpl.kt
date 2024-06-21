@@ -91,7 +91,7 @@ class MovieListRepositoryImpl @Inject constructor (
         }
     }
 
-    override suspend fun getMovie(id: Int): Flow<Resource<Movie>> {
+        override suspend fun getMovie(id: Int): Flow<Resource<Movie>> {
 
         return flow {
 

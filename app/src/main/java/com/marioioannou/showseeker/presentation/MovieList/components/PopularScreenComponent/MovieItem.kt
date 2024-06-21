@@ -7,7 +7,6 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -40,7 +39,6 @@ import coil.compose.AsyncImagePainter
 import coil.compose.rememberAsyncImagePainter
 import coil.request.ImageRequest
 import coil.size.Size
-import com.marioioannou.showseeker.data.remote.MovieAPI
 import com.marioioannou.showseeker.domain.model.Movie
 import com.marioioannou.showseeker.utils.Constants
 import com.marioioannou.showseeker.utils.RatingBar
@@ -95,6 +93,7 @@ fun MovieItem(
                 contentAlignment = Alignment.Center
             ){
                 Icon(
+                    modifier = Modifier.size(70.dp),
                     imageVector = Icons.Rounded.ImageNotSupported,
                     contentDescription = movie.title
                 )

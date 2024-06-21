@@ -1,4 +1,4 @@
-package com.marioioannou.showseeker.core
+package com.marioioannou.showseeker.presentation.MovieList.screens
 
 import android.os.Parcelable
 import androidx.compose.foundation.layout.Box
@@ -18,6 +18,8 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.Navigator
+import cafe.adriel.voyager.navigator.currentOrThrow
+import com.marioioannou.showseeker.presentation.MovieDetails.MovieDetailScreen
 import com.marioioannou.showseeker.presentation.MovieList.MovieListState
 import com.marioioannou.showseeker.presentation.MovieList.MovieListUIEvents
 import com.marioioannou.showseeker.presentation.MovieList.MovieListViewModel
@@ -29,6 +31,7 @@ import kotlinx.parcelize.Parcelize
 object UpcomingScreen: Screen,Parcelable {
     private fun readResolve(): Any = UpcomingScreen
 
+
     @Composable
     override fun Content() {
         val movieListViewModel: MovieListViewModel = hiltViewModel()
@@ -37,7 +40,8 @@ object UpcomingScreen: Screen,Parcelable {
         UpcomingMovieListContent(
             state = state,
             onEvent = { event -> movieListViewModel.onEvent(event) },
-            navigator = LocalNavigator.current
+            //navigator = LocalNavigator.current
+            navigator = LocalNavigator.currentOrThrow
         )
     }
 }
@@ -69,7 +73,8 @@ fun UpcomingMovieListContent(
 
             items(state.upcomingMovieList.size) { index ->
                 MovieItem(movie = state.upcomingMovieList[index]) {selectedMovie ->
-                    navigator?.push(MovieDetailScreen(movieId = selectedMovie.id.toString()))
+                    //navigator?.push(MovieDetailScreen(movieId = selectedMovie.id))
+                    navigator?.push(MovieDetailScreen(movieId = selectedMovie.id))
                 }
 
                 if (index >= state.upcomingMovieList.size -1 && !state.isLoading){

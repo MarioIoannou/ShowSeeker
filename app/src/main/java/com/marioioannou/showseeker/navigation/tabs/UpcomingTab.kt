@@ -1,8 +1,5 @@
 package com.marioioannou.showseeker.navigation.tabs
 
-import android.graphics.drawable.Drawable
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.rounded.Home
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.graphics.vector.ImageVector
@@ -13,8 +10,7 @@ import cafe.adriel.voyager.navigator.tab.Tab
 import cafe.adriel.voyager.navigator.tab.TabOptions
 import cafe.adriel.voyager.transitions.SlideTransition
 import com.marioioannou.showseeker.R
-import com.marioioannou.showseeker.core.PopularScreen
-import com.marioioannou.showseeker.core.UpcomingScreen
+import com.marioioannou.showseeker.presentation.MovieList.screens.UpcomingScreen
 
 object UpcomingTab:Tab {
     private fun readResolve(): Any = UpcomingTab
